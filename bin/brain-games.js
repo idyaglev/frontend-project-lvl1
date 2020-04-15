@@ -1,2 +1,4 @@
 #!/usr/bin/env node
-console.log("Welcome to the Brain Games!");
+import greetingsFunction from '../src/index.js';
+
+greetingsFunction();
