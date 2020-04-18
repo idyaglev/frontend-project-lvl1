@@ -1,5 +1,4 @@
 import readlineSync from 'readline-sync';
-import brainEvenGame from './games/brainEvenGame.js';
 
 const greetingsFunction = () => {
   console.log('Welcome to the Brain Games!');
@@ -8,10 +7,51 @@ const greetingsFunction = () => {
   return userName;
 };
 
-const brainEvenGameStart = () => {
+const gameStart = (game = null) => {
+  let numberOfUsrWins = 0;
+  let result = '';
+  let incorrectAnswer = '';
+  let finalCorrectAnswer = '';
   const userName = greetingsFunction();
-  console.log('Answer "yes" if the number is even, otherwise answer "no"');
-  brainEvenGame(userName);
+  if (game === null) {
+    return 'Please, choose your game ;)';
+  }
+  const rule = game()[0];
+  console.log(rule);
+  while (numberOfUsrWins < 3) {
+    const gameParameters = game();
+    const question = gameParameters[1];
+    const correctAnswer = gameParameters[2];
+    console.log(`Question: ${question}`);
+    const userAnswer = readlineSync.question('Your answer: ');
+    if (typeof correctAnswer === 'number') {
+      const intUserAnswer = userAnswer - 0;
+      if (intUserAnswer === correctAnswer) {
+        numberOfUsrWins += 1;
+        console.log('Correct!');
+      } else {
+        incorrectAnswer = userAnswer;
+        finalCorrectAnswer = correctAnswer;
+        break;
+      }
+    } else if (correctAnswer === userAnswer.toLowerCase() && typeof correctAnswer !== 'number') {
+      numberOfUsrWins += 1;
+      console.log('Correct!');
+    } else if (correctAnswer !== userAnswer.toLowerCase() && typeof correctAnswer !== 'number') {
+      incorrectAnswer = userAnswer;
+      finalCorrectAnswer = correctAnswer;
+      break;
+    }
+  }
+
+  if (numberOfUsrWins === 3) {
+    result = `Congratulations, ${userName}!`;
+    console.log(result);
+    return result;
+  }
+  result = `${incorrectAnswer} is wrong answer ;(. Correct answer was ${finalCorrectAnswer}.\nLet's try again, ${userName}!`;
+  console.log(result);
+  return result;
 };
 
-export { greetingsFunction, brainEvenGameStart };
+export { greetingsFunction, gameStart };

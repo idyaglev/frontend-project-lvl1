@@ -1,2 +1,5 @@
 #!/usr/bin/env node
-console.log('game calc');
+import { gameStart } from '../src/index.js';
+import brainCalcGame from '../src/games/brainCalcGame.js';
+
+gameStart(brainCalcGame);
