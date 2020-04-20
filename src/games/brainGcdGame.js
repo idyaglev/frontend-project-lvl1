@@ -1,8 +1,4 @@
-const gcd = (x, y) => {
-  if (y > x) return gcd(y, x);
-  if (!y) return x;
-  return gcd(y, x % y);
-};
+import gcd from '../supportive/gcd.js';
 
 const brainGcdGame = () => {
   const rule = 'Find the greatest common divisor of given numbers.';
