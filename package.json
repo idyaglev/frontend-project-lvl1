@@ -16,7 +16,6 @@
     "url": "https://github.com/ChivasRover/frontend-project-lvl1/issues"
   },
   "bin": {
-    "brain-games": "src/bin/brain-games.js",
     "brain-even": "src/bin/brain-even.js",
     "brain-calc": "src/bin/brain-calc.js",
     "brain-gcd": "src/bin/brain-gcd.js",
