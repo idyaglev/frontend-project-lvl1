@@ -16,9 +16,6 @@ jobs:
       - name: Dependenses installation
         run:
           make install
-          
-    steps:
-      - uses: actions/checkout@v2
       - name: Run linter
-        run:
-          make lint
+        run: 
+          make lint    
