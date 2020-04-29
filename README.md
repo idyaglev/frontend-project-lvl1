@@ -1,5 +1,5 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/34b0693ff1a46f4738db/maintainability)](https://codeclimate.com/github/ChivasRover/frontend-project-lvl1/maintainability)
-[![](https://github.com/ChivasRover/frontend-project-lvl1/workflows/Lint/badge.svg)](https://github.com/ChivasRover/frontend-project-lvl1/workflows/Lint)
+[![](https://github.com/ChivasRover/frontend-project-lvl1/workflows/Lint/badge.svg)](https://github.com/ChivasRover/frontend-project-lvl1/actions)
 
 brain-even command demo:
 [![asciicast](https://asciinema.org/a/ajJ5Ma4E0bgr5mRiiFbeKPyIl.svg)](https://asciinema.org/a/ajJ5Ma4E0bgr5mRiiFbeKPyIl)brain-calc command demo:
