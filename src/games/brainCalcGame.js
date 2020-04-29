@@ -1,5 +1,5 @@
 import randomIntNum from '../utils.js';
-import gameFlow from '../index.js'; 
+import gameFlow from '../index.js';
 
 const QandAGenerator = () => {
   const randomNum1 = randomIntNum(1, 100);
