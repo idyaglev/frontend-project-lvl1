@@ -20,5 +20,5 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Run linter
-        run: |
+        run:
           make lint
