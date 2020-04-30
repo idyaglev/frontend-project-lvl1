@@ -1,23 +1,20 @@
-import gameFlow from '../index.js';
-import randomIntNum from '../utils.js';
+import gameStart from '../index.js';
+import generateNum from '../utils.js';
 
-const QandAGenerator = () => {
-  const randomNumber = randomIntNum(1, 100);
-  const question = randomNumber;
-  let correctAnswer = '';
-  const result = [];
-  if (randomNumber % 2 === 0) {
-    correctAnswer = 'yes';
-  } else {
-    correctAnswer = 'no';
-  }
-  result.push(question, correctAnswer);
+const isEven = (num) => {
+  const result = (num % 2 === 0) ? 'yes' : 'no';
   return result;
 };
 
-const brainEvenGame = () => {
-  const rule = 'Answer "yes" if the number is even, otherwise answer "no".';
-  gameFlow(rule, QandAGenerator);
+const generateQandA = () => {
+  const question = generateNum(1, 100);
+  const correctAnswer = isEven(question);
+  const result = [question, correctAnswer];
+  return result;
 };
 
-export default brainEvenGame;
+const rule = 'Answer "yes" if the number is even, otherwise answer "no".';
+
+export default () => {
+  gameStart(rule, generateQandA);
+};

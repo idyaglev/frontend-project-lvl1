@@ -1,35 +1,35 @@
-import randomIntNum from '../utils.js';
-import gameFlow from '../index.js';
+import generateNum from '../utils.js';
+import gameStart from '../index.js';
 
 const isPrime = (num) => {
-  const primeNum = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41,
-    43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97];
-  let result = Boolean;
-  if (primeNum.includes(num)) {
-    result = true;
-  } else {
-    result = false;
+  if (num < 2) {
+    return 'no';
+  } if (num === 2) {
+    return 'yes';
   }
-  return result;
+
+  let i = 2;
+  const limit = Math.sqrt(num);
+  while (i <= limit) {
+    if (num % i === 0) {
+      return 'no';
+    }
+    i += 1;
+  }
+
+  return 'yes';
 };
 
-const QandAGenerator = () => {
-  const randomNum = randomIntNum(0, 100);
+const generateQandA = () => {
+  const randomNum = generateNum(0, 10);
   const question = randomNum;
-  let correctAnswer = '';
-  if (isPrime(randomNum)) {
-    correctAnswer = 'yes';
-  } else {
-    correctAnswer = 'no';
-  }
-  const result = [];
-  result.push(question, correctAnswer);
+  const correctAnswer = isPrime(randomNum);
+  const result = [question, correctAnswer];
   return result;
 };
 
-const brainPrimeGame = () => {
-  const rule = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-  gameFlow(rule, QandAGenerator);
-};
+const rule = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-export default brainPrimeGame;
+export default () => {
+  gameStart(rule, generateQandA);
+};

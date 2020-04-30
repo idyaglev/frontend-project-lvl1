@@ -1,33 +1,36 @@
-import randomIntNum from '../utils.js';
-import gameFlow from '../index.js';
+import generateNum from '../utils.js';
+import gameStart from '../index.js';
 
-const arithProgressionGen = (fst, iterCounter, delta) => {
+const generateProgression = (firstElem, iterCounter, delta) => {
   const resultedProgression = [];
-  resultedProgression.push(fst);
+  resultedProgression.push(firstElem);
   for (let i = 0; i < iterCounter; i += 1) {
-    const nextProgressionElem = resultedProgression[resultedProgression.length - 1] + delta;
+    const nextProgressionElem = resultedProgression[i] + delta;
     resultedProgression.push(nextProgressionElem);
   }
   return resultedProgression;
 };
 
-const QandAGenerator = () => {
-  const fstProgressionElem = randomIntNum(1, 10);
-  const iterCounter = 10;
-  const progressionDelta = randomIntNum(2, 5);
-  const arithProgression = arithProgressionGen(fstProgressionElem, iterCounter, progressionDelta);
-  const arithProgressionMissedElem = randomIntNum(0, 10);
-  const correctAnswer = arithProgression[arithProgressionMissedElem];
-  arithProgression[arithProgressionMissedElem] = '..';
-  const question = arithProgression.join(' ');
-  const result = [];
-  result.push(question, correctAnswer.toString());
+const generateQandA = (firstElem, iterCounter, progressionDelta) => {
+  const question = generateProgression(firstElem, iterCounter, progressionDelta);
+  const arithProgressionMissedElem = generateNum(0, 10);
+  const answer = question[arithProgressionMissedElem];
+  question[arithProgressionMissedElem] = '..';
+  const result = [question.join(' '), answer];
   return result;
 };
 
-const brainProgressionGame = () => {
-  const rule = 'What number is missing in the progression?';
-  gameFlow(rule, QandAGenerator);
+const generateGameParam = () => {
+  const firstElem = generateNum(1, 10);
+  const iterCounter = 10;
+  const progressionDelta = generateNum(2, 5);
+  const [question, answer] = generateQandA(firstElem, iterCounter, progressionDelta);
+  const result = [question, answer.toString()];
+  return result;
 };
 
-export default brainProgressionGame;
+const rule = 'What number is missing in the progression?';
+
+export default () => {
+  gameStart(rule, generateGameParam);
+};

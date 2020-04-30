@@ -1,5 +1,5 @@
-import randomIntNum from '../utils.js';
-import gameFlow from '../index.js';
+import generateNum from '../utils.js';
+import gameStart from '../index.js';
 
 const gcd = (x, y) => {
   if (y > x) return gcd(y, x);
@@ -7,19 +7,17 @@ const gcd = (x, y) => {
   return gcd(y, x % y);
 };
 
-const QandAGenerator = () => {
-  const randomNum1 = randomIntNum(1, 100);
-  const randomNum2 = randomIntNum(1, 100);
+const generateQandA = () => {
+  const randomNum1 = generateNum(1, 100);
+  const randomNum2 = generateNum(1, 100);
   const question = `${randomNum1} ${randomNum2}`;
   const correctAnswer = gcd(randomNum1, randomNum2);
-  const result = [];
-  result.push(question, correctAnswer.toString());
+  const result = [question, correctAnswer.toString()];
   return result;
 };
 
-const brainGcdGame = () => {
-  const rule = 'Find the greatest common divisor of given numbers.';
-  gameFlow(rule, QandAGenerator);
-};
+const rule = 'Find the greatest common divisor of given numbers.';
 
-export default brainGcdGame;
+export default () => {
+  gameStart(rule, generateQandA);
+};
