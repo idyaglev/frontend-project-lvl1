@@ -1,5 +1,5 @@
-import generateNum from '../utils.js';
 import gameStart from '../index.js';
+import generateNum from '../utils.js';
 
 const gcd = (x, y) => {
   if (y > x) return gcd(y, x);
@@ -18,6 +18,4 @@ const generateQandA = () => {
 
 const rule = 'Find the greatest common divisor of given numbers.';
 
-export default () => {
-  gameStart(rule, generateQandA);
-};
+export default () => gameStart(rule, generateQandA);

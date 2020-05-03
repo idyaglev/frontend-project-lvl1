@@ -9,20 +9,21 @@ const greet = () => {
 
 const gameStart = (rule, generateQandA) => {
   const userName = greet();
+  const successCount = 3;
   console.log(rule);
 
-  let numberOfUserWins = 0;
-  while (numberOfUserWins < 3) {
-    const [question, answer] = generateQandA();
+  let userWinsCounter = 0;
+  while (userWinsCounter < successCount) {
+    const [question, correctAnswer] = generateQandA();
     console.log(`Question: ${question}`);
     const userAnswer = readlineSync.question('Your answer: ');
-    if (userAnswer !== answer) {
-      console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${answer}"`);
+    if (userAnswer !== correctAnswer) {
+      console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${correctAnswer}"`);
       console.log(`Let's try again, ${userName}!`);
       return;
     }
     console.log('Correct!');
-    numberOfUserWins += 1;
+    userWinsCounter += 1;
   }
 
   console.log(`Congratulations, ${userName}!`);

@@ -1,35 +1,34 @@
-import generateNum from '../utils.js';
 import gameStart from '../index.js';
+import generateNum from '../utils.js';
 
 const isPrime = (num) => {
   if (num < 2) {
-    return 'no';
-  } if (num === 2) {
-    return 'yes';
+    return false;
+  }
+
+  if (num === 2) {
+    return true;
   }
 
   let i = 2;
   const limit = Math.sqrt(num);
   while (i <= limit) {
     if (num % i === 0) {
-      return 'no';
+      return false;
     }
     i += 1;
   }
 
-  return 'yes';
+  return true;
 };
 
 const generateQandA = () => {
-  const randomNum = generateNum(0, 10);
-  const question = randomNum;
-  const correctAnswer = isPrime(randomNum);
+  const question = generateNum(0, 10);
+  const correctAnswer = isPrime(question) ? 'yes' : 'no';
   const result = [question, correctAnswer];
   return result;
 };
 
 const rule = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-export default () => {
-  gameStart(rule, generateQandA);
-};
+export default () => gameStart(rule, generateQandA);
