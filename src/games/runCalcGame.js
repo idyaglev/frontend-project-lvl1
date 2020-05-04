@@ -14,7 +14,7 @@ const calculateAnswer = (randomNum1, randomNum2, randomOperator) => {
       result = randomNum1 * randomNum2;
       break;
     default:
-      console.log('ALARM, PROGRAM WAS CRACKED! ;(');
+      throw new Error(`Unknown operator ${randomOperator}`);
   }
   return result;
 };

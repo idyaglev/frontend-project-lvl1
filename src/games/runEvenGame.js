@@ -2,13 +2,13 @@ import generateNum from '../utils.js';
 import gameStart from '../index.js';
 
 const isEven = (num) => {
-  const result = (num % 2 === 0) ? 'yes' : 'no';
+  const result = (num % 2 === 0);
   return result;
 };
 
 const generateQandA = () => {
   const question = generateNum(1, 100);
-  const correctAnswer = isEven(question);
+  const correctAnswer = isEven(question) ? 'yes' : 'no';
   const result = [question, correctAnswer];
   return result;
 };
