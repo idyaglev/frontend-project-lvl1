@@ -2,7 +2,7 @@
 [![](https://github.com/ChivasRover/frontend-project-lvl1/workflows/Lint/badge.svg)](https://github.com/ChivasRover/frontend-project-lvl1/actions)
 
 brain-even command demo:
-[![asciicast](https://asciinema.org/a/ajJ5Ma4E0bgr5mRiiFbeKPyIl.svg)](https://asciinema.org/a/ajJ5Ma4E0bgr5mRiiFbeKPyIl)brain-calc command demo:
+[![asciicast](https://asciinema.org/a/ajJ5Ma4E0bgr5mRiiFbeKPyIl.svg)](https://asciinema.org/a/ajJ5Ma4E0bgr5mRiiFbeKPyIl)
 brain-calc command demo:
 [![asciicast](https://asciinema.org/a/PuVEmaX1bpAN140o9Xp6Cdia9.svg)](https://asciinema.org/a/PuVEmaX1bpAN140o9Xp6Cdia9)
 brain-gcd command demo:
