@@ -1,20 +1,20 @@
-import gameStart from '../index.js';
+import runGame from '../index.js';
 import generateNum from '../utils.js';
 
-const generateProgression = (firstElem, delta) => {
-  const iterCounter = 10;
-  const resultedProgression = [firstElem];
-  for (let i = 0; i < iterCounter; i += 1) {
-    resultedProgression.push(resultedProgression[i] + delta);
+const generateProgression = (firstElem, delta, progressionLength) => {
+  const resultedProgression = [];
+  for (let i = 0; i < progressionLength; i += 1) {
+    resultedProgression.push(firstElem + delta * i);
   }
   return resultedProgression;
 };
 
 const generateQandA = () => {
-  const firstElem = generateNum(0, 10);
+  const progressionLength = 10;
+  const firstElem = generateNum(0, progressionLength);
   const delta = generateNum(2, 5);
-  const progression = generateProgression(firstElem, delta);
-  const missedElemIndex = generateNum(0, 10);
+  const progression = generateProgression(firstElem, delta, progressionLength);
+  const missedElemIndex = generateNum(0, progressionLength - 1);
   const correctAnswer = progression[missedElemIndex];
   progression[missedElemIndex] = '..';
   const question = progression.join(' ');
@@ -24,4 +24,4 @@ const generateQandA = () => {
 
 const rule = 'What number is missing in the progression?';
 
-export default () => gameStart(rule, generateQandA);
+export default () => runGame(rule, generateQandA);

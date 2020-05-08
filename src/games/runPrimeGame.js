@@ -1,4 +1,4 @@
-import gameStart from '../index.js';
+import runGame from '../index.js';
 import generateNum from '../utils.js';
 
 const isPrime = (num) => {
@@ -31,4 +31,4 @@ const generateQandA = () => {
 
 const rule = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-export default () => gameStart(rule, generateQandA);
+export default () => runGame(rule, generateQandA);

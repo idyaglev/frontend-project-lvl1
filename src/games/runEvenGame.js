@@ -1,5 +1,5 @@
 import generateNum from '../utils.js';
-import gameStart from '../index.js';
+import runGame from '../index.js';
 
 const isEven = (num) => {
   const result = (num % 2 === 0);
@@ -15,4 +15,4 @@ const generateQandA = () => {
 
 const rule = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-export default () => gameStart(rule, generateQandA);
+export default () => runGame(rule, generateQandA);
